@@ -29,10 +29,6 @@ function validateEnv(raw: ReturnType<typeof readEnv>): Env {
 
   if (!supabaseAnonKey) {
     problems.push('EXPO_PUBLIC_SUPABASE_ANON_KEY is missing or empty');
-  } else if (!JWT_PATTERN.test(supabaseAnonKey)) {
-    problems.push(
-      'EXPO_PUBLIC_SUPABASE_ANON_KEY does not look like a valid JWT — copy the "anon public" key from the Supabase dashboard',
-    );
   }
 
   if (problems.length > 0) {
